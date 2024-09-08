@@ -17,6 +17,26 @@ return {
         end,
     },
 
+
+    -- Add Lspsaga plugin here
+    {
+        "nvimdev/lspsaga.nvim",
+        event = "LspAttach",
+        config = function()
+            require("lspsaga").setup({
+                ui = {
+                    border = "rounded",
+                },
+                -- Customize definition preview window size
+                definition = {
+                  width = 1,
+                  height = 0.4,
+                },
+            })
+        end,
+        dependencies = { {"nvim-tree/nvim-web-devicons"} }
+    },
+
     {
         "williamboman/mason-lspconfig.nvim",
         event = "VeryLazy",
@@ -59,4 +79,5 @@ return {
             require("configs.mason-conform")
         end,
     },
+
 }
