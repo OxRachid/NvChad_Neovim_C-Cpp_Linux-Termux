@@ -18,10 +18,11 @@ local options = {
                 PackConstructorInitializers: Never,\
                 IndentCaseLabels: true,\
                 NamespaceIndentation: All,\
-        PenaltyBreakString: 1000, \
-        PenaltyExcessCharacter: 1000000, \
+                PenaltyBreakString: 1000, \
+                PenaltyExcessCharacter: 1000000, \
                 ColumnLimit: 1200,\
-                AllowShortFunctionsOnASingleLine: Empty}",
+                AllowShortFunctionsOnASingleLine: Empty, \
+                AllowShortEnumsOnASingleLine: false}",
             },
         },
     },
