@@ -4,6 +4,8 @@ local options = {
         c_cpp = { "clang-format" }, -- Hack to force download.
         c = { "clang_format" },
         cpp = { "clang_format" },
+        sh = { "shfmt" },   -- Add shfmt for sh files
+        bash = { "shfmt" }, -- Add shfmt for bash files
     },
 
     formatters = {
@@ -23,6 +25,12 @@ local options = {
                 ColumnLimit: 1200,\
                 AllowShortFunctionsOnASingleLine: Empty, \
                 AllowShortEnumsOnASingleLine: false}",
+            },
+        },
+        shfmt = {
+            prepend_args = {
+                "-i", "4", -- Use 4 spaces for indentation
+                "-ci",     -- Indent switch cases
             },
         },
     },

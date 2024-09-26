@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-	theme = "catppuccin",
+	theme = "tokyodark",
 
 	hl_override = {
 		Comment = { fg = "#646e82", italic = false, bold = true },

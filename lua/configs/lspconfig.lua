@@ -8,6 +8,7 @@ local lspconfig = require("lspconfig")
 lspconfig.servers = {
     "lua_ls",
     "clangd",
+    "bashls", -- Add bash-language-server
 }
 
 -- list of servers configured with default config.
@@ -22,6 +23,21 @@ for _, lsp in ipairs(default_servers) do
     })
 end
 
+
+-- Add bash-language-server configuration
+lspconfig.bashls.setup({
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+    filetypes = { "sh", "bash" },
+    settings = {
+        bashIde = {
+            globPattern = "*@(.sh|.inc|.bash|.command)"
+        }
+    }
+})
+
+
 lspconfig.clangd.setup({
     on_attach = function(client)
         client.server_capabilities.documentFormattingProvider = false
@@ -31,10 +47,10 @@ lspconfig.clangd.setup({
     on_init = on_init,
     capabilities = capabilities,
     settings = {
-      clangd = {
-         timeout = 2000,  -- Increase the timeout duration
+        clangd = {
+            timeout = 2000, -- Increase the timeout duration
+        },
     },
-  },
 })
 
 lspconfig.lua_ls.setup({
